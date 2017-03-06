@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <style>
+		.title {
+			margin: 20px 15px 10px;
+			color: #6d6d72;
+			font-size: 15px;
+		}
+	</style>
+    <script type="text/javascript" charset="utf-8">
+      	
+
+      function captureImage(){
+			var cmr = plus.camera.getCamera();
+			var res = cmr.supportedImageResolutions[0];
+			var fmt = cmr.supportedImageFormats[0];
+			console.log("Resolution: "+res+", Format: "+fmt);
+			cmr.captureImage( function( path ){
+					alert( "Capture image success: " + path );  
+				},
+				function( error ) {
+					alert( "Capture image failed: " + error.message );
+				},
+				{resolution:res,format:fmt}
+			);
+		}
+      
+      // 扩展API加载完毕后调用onPlusReady回调函数 
+		document.addEventListener( "plusready", onPlusReady, false );
+		// 扩展API加载完毕，现在可以正常调用扩展API 
+		function onPlusReady() { 
+		}
+		var p = null; 
+		function startPlay() {
+			if ( plus.audio == undefined ) {
+				alert( "Device not ready!" );
+			}
+			p = plus.audio.createPlayer( "17517210.mp3" );
+			p.play( function () {
+				alert( "Audio play success!" ); 
+			}, function ( e ) {
+				alert( "Audio play error: " + e.message ); 
+			} ); 
+		}
+		function stopPlay() {
+			p.stop();
+		}
+		
+		function jumpToDetailView(){
+
+			
+			
+			mui.openWindow({
+			
+			url:'index.html',
+			
+			id:'index.html'
+			
+			});
+			
+			}
+    </script>
+</head>	
+<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-left-nav" onclick="jumpToDetailView()"></a>
+			<span class="mui-icon mui-icon-camera" onclick="captureImage()"></span>
+			<h1 class="mui-title">个人详细资料</h1>
+			<div style="float: right;margin-top:5px ;">
+    			<input type="button" value="Start" onclick="startPlay();"/> 
+				<input type="button" value="Stop" onclick="stopPlay();"/>
+			</div>
+			<a href=""></a>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">技能</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon mui-icon-email"></span>
+				<span class="mui-tab-label">经历</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">项目</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="tabbar" class="mui-control-content mui-active">
+			<div class="title">
+				基本技能
+			</div>
+		<ul class="mui-table-view">
+		    <li class="mui-table-view-cell mui-media" id="1">
+		        <a href="javascript:;">
+		            <img class="mui-media-object mui-pull-left" src="img/a3.jpg">
+		            <div class="mui-media-body">
+		                框架
+		                <p class='mui-ellipsis'>熟悉：Jquery、Zepto、AngularJs、Recat、Avalon、Mui、Yo、Ionic等</p>
+		            </div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" id="2">
+		        <a href="javascript:;">
+		            <img class="mui-media-object mui-pull-left" src="img/a4.jpg">
+		            <div class="mui-media-body">
+		                规范
+		                <p class='mui-ellipsis'>了解：HTML4、HTML5、ES5、ES6、CommonJS、CMD、AMD等</p>
+		            </div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" id="3">
+		        <a href="javascript:;">
+		            <img class="mui-media-object mui-pull-left" src="img/a5.jpg">
+		            <div class="mui-media-body">
+		                类库
+		                <p class='mui-ellipsis'>熟悉：Swiper、Iscroll等</p>
+		            </div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" id="4">
+		        <a href="javascript:;">
+		            <img class="mui-media-object mui-pull-left" src="img/a6.jpg">
+		            <div class="mui-media-body">
+		                程序
+		                <p class='mui-ellipsis'>精通：Javascript原生、Jquery及Zepto插件、AngularJs等</p>
+		            </div>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" id="5">
+		        <a href="javascript:;">
+		            <img class="mui-media-object mui-pull-left" src="img/a7.jpg">
+		            <div class="mui-media-body">
+		                布局
+		                <p class='mui-ellipsis'>精通：Javascript原生、Jquery及Zepto插件、AngularJs等</p>
+		            </div>
+		        </a>
+		    </li>
+		    
+		</ul>
+		
+		<div class="title">
+			使用工具
+		</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media" id="6">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left" src="img/a8.jpg">
+			            <div class="mui-media-body">
+			                开发工具
+			                <p class='mui-ellipsis'>使用sublime，HBuilder，Dreamweaver，Photoshop等</p>
+			            </div>
+			        </a>
+			    </li>
+		   </ul>
+			</div>
+			<div id="tabbar-with-chat" class="mui-control-content">
+				<div class="title">个人经历</div>
+				
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell">
+						<div class="mui-card">
+							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/w1.jpg)"></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p>Posted on January 18, 2016</p>
+									<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<a class="mui-card-link">Like</a>
+								<a class="mui-card-link">Read more</a>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-card">
+							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/w2.jpg)"></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p>Posted on January 18, 2016</p>
+									<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<a class="mui-card-link">Like</a>
+								<a class="mui-card-link">Read more</a>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-card">
+							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/w3.jpg)"></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p>Posted on January 18, 2016</p>
+									<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<a class="mui-card-link">Like</a>
+								<a class="mui-card-link">Read more</a>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-card">
+							<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(img/w4.jpg)"></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p>Posted on January 18, 2016</p>
+									<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<a class="mui-card-link">Like</a>
+								<a class="mui-card-link">Read more</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+			<div id="tabbar-with-contact" class="mui-control-content">
+		        <div class="title">项目展示</div>
+		        <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+		        <li class="mui-table-view-cell">
+		          <div class="mui-slider-cell">
+		            <div class="oa-contact-cell mui-table">
+		              <div class="oa-contact-avatar mui-table-cell">
+		                <img src="img/c6.jpg" />
+		              </div>
+		              <div class="oa-contact-content mui-table-cell">
+		                <div class="mui-clearfix">
+		                  <h4 class="oa-contact-name">和瑞控股公司</h4>
+		                  <span class="oa-contact-position mui-h6">和瑞控股公司的官方网站，详细介绍了和瑞控股公司的主要情况</span>
+		                </div>
+		                <p class="oa-contact-email mui-h6">
+		                  项目耗时3周，主要处理前端页面及程序嵌套，当时并未要求移动端适配，故该网站只适应于PC端应用
+		                </p>
+		                <p class="oa-contact-email mui-h6">
+		                  Html、Css2、Coldfusion等
+		                </p>
+		              </div>
+		            </div>
+		          </div>
+		        </li>
+		        <li class="mui-table-view-cell">
+		          <div class="mui-slider-cell">
+		            <div class="oa-contact-cell mui-table">
+		              <div class="oa-contact-avatar mui-table-cell">
+		                <img src="img/c4.jpg" />
+		              </div>
+		              <div class="oa-contact-content mui-table-cell">
+		                <div class="mui-clearfix">
+		                  <h4 class="oa-contact-name">珍诚医药</h4>
+		                  <span class="oa-contact-position mui-h6">医药电商先锋平台，国内医药电商B2B第一平台，年销售额超25亿</span>
+		                </div>
+		                <p class="oa-contact-email mui-h6">
+		                  长期维护，功能迭代，包括平台整体UI改进以及功能模块的增加与性能的优化
+		                </p>
+		                 <p class="oa-contact-email mui-h6">
+		                  Html、Css2、Javascript、Jquery、Java等
+		                </p>
+		              </div>
+		            </div>
+		          </div>
+		        </li>
+		        <li class="mui-table-view-cell">
+		          <div class="mui-slider-cell">
+		            <div class="oa-contact-cell mui-table">
+		              <div class="oa-contact-avatar mui-table-cell">
+		                <img src="img/c3.jpg" />
+		              </div>
+		              <div class="oa-contact-content mui-table-cell">
+		                <div class="mui-clearfix">
+		                  <h4 class="oa-contact-name">网上药博会</h4>
+		                  <span class="oa-contact-position mui-h6">网上药博会，网上药品及药企展览平台</span>
+		                </div>
+		                <p class="oa-contact-email mui-h6">
+		                  项目初建耗时4月，从需求到页面设计，从页面设计到前端实现，从页面实现到功能开发和集成，从本地测试到平台上线等全程处理
+		                </p>
+		                <p class="oa-contact-email mui-h6">
+		                 Html、Css2、Javascript、Jquery、Coldfusion等
+		                </p>
+		              </div>
+		            </div>
+          </div>
+        </li>
+        <li class="mui-table-view-cell">
+          <div class="mui-slider-cell">
+            <div class="oa-contact-cell mui-table">
+              <div class="oa-contact-avatar mui-table-cell">
+                <img src="img/c7.jpg" />
+              </div>
+              <div class="oa-contact-content mui-table-cell">
+                <div class="mui-clearfix">
+                  <h4 class="oa-contact-name">政教通</h4>
+                  <span class="oa-contact-position mui-h6">儿童健康成长护航者</span>
+                </div>
+                <p class="oa-contact-email mui-h6">
+                  项目初建耗时3月，主要包括数据支撑平台的建设、移动端Hybrid模式的应用及开发
+                </p>
+                 <p class="oa-contact-email mui-h6">
+                  Html5、Css3、Jquery、AngularJs、Java等
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+        
+      </ul>
+      </div>
+			<div id="tabbar-with-map" class="mui-control-content">
+				<div class="mui-slider">
+  	<div class="mui-slider-group mui-slider-loop">
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="4.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="img/fac1.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="img/fac2.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="img/fac3.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="img/fac4.jpg" /></a></div>
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="1.jpg" /></a></div>
+  </div>
+</div>
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell mui-collapse">
+				        <a class="mui-navigate-right" href="#">2010-2012</a>
+				        <div class="mui-collapse-content">
+				            <p>9K</p>
+				        </div>
+				    </li>
+				    <li class="mui-table-view-cell mui-collapse">
+				        <a class="mui-navigate-right" href="#">2012-2014</a>
+				            <div class="mui-collapse-content">
+				            <p>18K</p>
+				        </div>
+				    </li>
+				    <li class="mui-table-view-cell mui-collapse">
+				        <a class="mui-navigate-right" href="#">2014-2016</a>
+				        <div class="mui-collapse-content">
+				            <p>30K</p>
+				        </div>
+				    </li>
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>
